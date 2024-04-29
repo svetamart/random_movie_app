@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Movie</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .movie-poster {
+            flex: 0 0 auto;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .movie-info {
+            flex: 1 1 auto;
+            text-align: left;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .movie-info-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body th:if="${movie != null}">
+<h1>Your Random Movie for Today</h1>
+<div class="container">
+    <div class="movie-poster">
+        <img th:src="${movie.poster}" alt="Movie Poster">
+    </div>
+    <div class="movie-info">
+        <div class="movie-info-item"><b>Title:</b> <span th:text="${movie.title}"></span></div>
+        <div class="movie-info-item"><b>Year:</b> <span th:text="${movie.year}"></span></div>
+        <div class="movie-info-item"><b>Rated:</b> <span th:text="${movie.rated}"></span></div>
+        <div class="movie-info-item"><b>Released:</b> <span th:text="${movie.released}"></span></div>
+        <div class="movie-info-item"><b>Runtime:</b> <span th:text="${movie.runtime}"></span></div>
+        <div class="movie-info-item"><b>Genre:</b> <span th:text="${movie.genre}"></span></div>
+        <div class="movie-info-item"><b>Director:</b> <span th:text="${movie.director}"></span></div>
+        <div class="movie-info-item"><b>Writer:</b> <span th:text="${movie.writer}"></span></div>
+        <div class="movie-info-item"><b>Actors:</b> <span th:text="${movie.actors}"></span></div>
+        <div class="movie-info-item"><b>Plot:</b> <span th:text="${movie.plot}"></span></div>
+        <div class="movie-info-item"><b>Language:</b> <span th:text="${movie.language}"></span></div>
+        <div class="movie-info-item"><b>Country:</b> <span th:text="${movie.country}"></span></div>
+    </div>
+</div>
+</body>
+<body th:unless="${movie != null}">
+<p>Oops, something went wrong. Please refresh the page.</p>
+</body>
+</html>
